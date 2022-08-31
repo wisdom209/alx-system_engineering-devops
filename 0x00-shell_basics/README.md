@@ -1,0 +1,1 @@
+Shell Projects root directory
