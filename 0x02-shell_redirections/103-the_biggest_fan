@@ -1,0 +1,3 @@
+#!/bin/bash
+cat | cut -d- -f1 | uniq -dc | sort -brn| tr -s " " |cut -d ' ' -f3 | uniq | head -n 11
+
