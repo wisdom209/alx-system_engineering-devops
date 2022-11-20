@@ -54,8 +54,7 @@ Write a script that creates an empty file called hello.
 * File: 4-empty
     
 ## 5. Execute
-mandatory
-Score: 100.0% (Checks completed: 100.0%)
+
 Write a script that adds execute permission to the owner of the file hello.
 
 The file hello will be in the working directory
@@ -67,8 +66,7 @@ The file hello will be in the working directory
 * File: 5-execute
     
 ## 6. Multiple permissions
-mandatory
-Score: 100.0% (Checks completed: 100.0%)
+
 Write a script that adds execute permission to the owner and the group owner, and read permission to other users, to the file hello.
 
 The file hello will be in the working directory
@@ -92,8 +90,6 @@ You are not allowed to use commas for this script
 * File: 7-everybody
     
 ## 8. James Bond
-mandatory
-Score: 100.0% (Checks completed: 100.0%)
 Write a script that sets the permission to the file hello as follows:
 
 Owner: no permission at all
@@ -122,24 +118,12 @@ You are not allowed to use commas for this script
 * File: 9-John_Doe
     
 ## 10. Look in the mirror
-mandatory
-Score: 100.0% (Checks completed: 100.0%)
+
 Write a script that sets the mode of the file hello the same as olleh’s mode.
 
 The file hello will be in the working directory
 The file olleh will be in the working directory
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 42 Sep 20 14:45 10-mirror_permissions
--rwxr-x-wx 1 julien julien 23 Sep 20 14:25 hello
--rw-rw-r-- 1 julien julien  0 Sep 20 14:43 olleh
-julien@ubuntu:/tmp/h$ ./10-mirror_permissions 
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 42 Sep 20 14:45 10-mirror_permissions
--rw-rw-r-- 1 julien julien 23 Sep 20 14:25 hello
--rw-rw-r-- 1 julien julien  0 Sep 20 14:43 olleh
-julien@ubuntu:/tmp/h$ 
+
 Note: the mode of olleh will not always be 664. Make sure your script works for any mode.
 
 ## Repo:
@@ -149,8 +133,7 @@ Note: the mode of olleh will not always be 664. Make sure your script works for 
 * File: 10-mirror_permissions
     
 ## 11. Directories
-mandatory
-Score: 100.0% (Checks completed: 100.0%)
+
 Create a script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files should not be changed.
 
 ## Repo:
