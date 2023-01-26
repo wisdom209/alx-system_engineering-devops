@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Print best school 10 times using while loop in bash
+i=0
+while ((i < 10)); do
+	echo Best School
+	i=$((i + 1))
+done
