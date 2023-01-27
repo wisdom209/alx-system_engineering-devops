@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Easy way to check your pid
+
+pgrep -l bash
