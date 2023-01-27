@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 # Learning how to use cut
 
-find ./* | cut -b 3- | cut -d "-" -f 2
+for name in *; do
+	if [[ $name == ".*" ]]; then
+		continue
+	else
+		echo "$name" | cut -d "-" -f 2
+	fi
+done
+
