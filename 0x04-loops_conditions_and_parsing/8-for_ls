@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Learning how to use cut
+
+ls | cut -d "=" -f 1
