@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Learning how to use cut
 
-find . -not -name ".*" | cut -b 3- | cut -d "-" -f 2
+find ./* | cut -b 3- | cut -d "-" -f 2
