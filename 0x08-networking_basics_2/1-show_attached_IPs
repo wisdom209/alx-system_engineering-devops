@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# show only ipv4 active addresses
+
+ifconfig | sed -n '/inet /{s/inet //;s/\s*netmask.*//;s/^[ \t]*//;p}'
