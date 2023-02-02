@@ -1,4 +1,4 @@
-
+127.0.0.1	localhost
 127.0.1.1	wisdom-HP-EliteBook-820-G1
 
 # The following lines are desirable for IPv6 capable hosts
@@ -11,5 +11,3 @@ ff02::2 ip6-allrouters
 # To allow the same kube context to work on the host and the container:
 127.0.0.1	kubernetes.docker.internal
 # End of section
-127.0.0.2	localhost
-8.8.8.8		facebook.com

@@ -4,7 +4,8 @@
 # test
 # cp old_host hosts.new
 
-cp /etc/hosts ./hosts.new ./hosts.old
+cp /etc/hosts hosts.new
+cp /etc/hosts hosts.old
 
 #Add host name address
 sed -i $'s/127.0.0.1\s*localhost//g' ./hosts.new
@@ -14,4 +15,4 @@ echo $'127.0.0.2\tlocalhost' >> ./hosts.new
 sed '/facebook.com/d' ./hosts.new
 echo $'8.8.8.8\t\tfacebook.com' >> ./hosts.new
 
-cp -f ~/hosts.new /etc/hosts
+sudo cp -f hosts.new /etc/hosts
