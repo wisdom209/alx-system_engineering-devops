@@ -2,13 +2,13 @@
 # Modifying the /etc/hosts file
 
 cp /etc/hosts ~/hosts.new
-
+cp /etc/hosts ~/hosts.old
 #Add host name address
 sed -i $'s/127.0.0.1\s*localhost//g' ~/hosts.new
 echo $'127.0.0.2\tlocalhost' >> ~/hosts.new
 
 # Add facebook address
-sed '/facebook.com/d' ~/hosts.new
+sed -i $'/157.240.11.34\s*facebook.com//g' ~/hosts.new
 echo $'8.8.8.8\t\tfacebook.com' >> ~/hosts.new
 
 cp -f ~/hosts.new /etc/hosts
