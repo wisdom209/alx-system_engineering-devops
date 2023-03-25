@@ -1,10 +1,12 @@
-# set up automatic authentication
+# Puppet script to create ssh config file
+file_line { 'Turn off passwd auth':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
+}
 
-file {'/etc/ssh/ssh_config':
-ensure  => file,
-content => 'Host 54.196.49.168
-	User ubuntu
-	IdentityFile ~/.ssh/school
-	PubKeyAuthentication yes
-	PasswordAuthenticaton no',
+file_line { 'Declare identity file':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    IdentityFile ~/.ssh/school',
 }
