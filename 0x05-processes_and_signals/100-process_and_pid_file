@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Playing with kill signals
+
+touch ./myscript.pid
+echo $$ > ./myscript.pid
+
+i=0
+while ((i==0)); do
+	echo To infinity and beyond
+	trap "echo I hate the kill command && exit 0" SIGTERM
+	trap "echo Y U no love me?!" SIGINT
+	trap "exit" SIGQUIT
+	sleep 2
+done

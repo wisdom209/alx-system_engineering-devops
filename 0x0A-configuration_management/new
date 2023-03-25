@@ -1,0 +1,1 @@
+Host 54.196.49.168\n\tUser ubuntu\n\tIdentityFile ~/.ssh/school\n\tPubKeyAuthentication yes\n\tPasswordAuthenticaton no\n

@@ -1,6 +1,6 @@
 # set up automatic authentication
 
-file {'/home/wisdom/.ssh/config':
+file {'/etc/ssh/ssh_config':
 ensure  => file,
 content => 'Host 54.196.49.168
 	User ubuntu
