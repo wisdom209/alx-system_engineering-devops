@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# listen on port 80 without restarting nginx
+apt-get -y install socat
+sudo socat TCP-LISTEN:80,fork TCP:localhost:8080 > /dev/null 2>&1 &
