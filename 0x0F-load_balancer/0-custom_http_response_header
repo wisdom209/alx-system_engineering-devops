@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# configure new server
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+sed -i "s/http {/http {\n\tadd_header X-Served-By $(hostname);/" /etc/nginx/nginx.conf
+service nginx restart
