@@ -6,7 +6,7 @@ SETUP="frontend myapp
 backend myapp_servers
 	balance roundrobin
 	server server1 54.173.2.233
-	server server2 34.229.136.83
+	server server2 54.210.243.50
 "
 apt-get -y update
 apt-get -y install haproxy
