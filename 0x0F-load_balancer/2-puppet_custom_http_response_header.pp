@@ -1,15 +1,15 @@
 #setup nginx web server with puppet
 
-$file_content= @(END)
+$file_content= @("E0F")
 server {
 	listen 80 default_server;
-	add_header X-Served-By $(hostname);
+	add_header X-Served-By "${facts['networking']['hostname']}";
 
 	root /var/www/html;
 	index index.html;
 
 	error_page 404 /404.html;
-	location = /404.html{
+	location = /404.html {
 		internal;
 	}
 
@@ -17,7 +17,7 @@ server {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
 }
-END
+E0F
 
 package {'nginx':
 ensure   => 'installed',
@@ -45,8 +45,7 @@ exec {'100 allow nginx':
 command => '/usr/sbin/ufw allow "Nginx HTTP"'
 }
 
-service {'nginx':
-ensure => running,
-enable => true
+exec {'nginx-restart':
+command  => 'service nginx restart',
+provider => 'shell'
 }
-
