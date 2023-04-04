@@ -26,26 +26,24 @@ provider => 'apt'
 file {'/var/www/html/index.html':
 ensure  => file,
 content => 'Hello World!
-'
+',
+require => Package['nginx']
 }
 
 file {'/var/www/html/404.html':
 ensure  => file,
 content => "Ceci n'est pas une page
-"
+",
+require => Package['nginx']
 }
 
 file {'/etc/nginx/sites-enabled/default':
 ensure  => file,
-content => $file_content
-}
-
-exec {'100 allow nginx':
-command => '/usr/sbin/ufw allow "Nginx HTTP"'
+content => $file_content,
+require => Package['nginx']
 }
 
 exec {'nginx-restart':
 command  => 'service nginx restart',
 provider => 'shell'
 }
-
