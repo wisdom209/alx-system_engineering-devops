@@ -18,9 +18,14 @@ server {
 	}
 }
 "
-package {'nginx':
-ensure   => 'installed',
-provider => 'apt'
+exec { 'apt-get-update':
+  command => '/usr/bin/apt-get update',
+}
+
+package { 'nginx':
+  ensure   => 'installed',
+  provider => 'apt',
+  require  => Exec['apt-get-update'],
 }
 
 file {'/var/www/html/index.html':
@@ -46,4 +51,5 @@ require => Package['nginx']
 exec {'nginx-restart':
 command  => 'service nginx restart',
 provider => 'shell'
+require  => Package['nginx']
 }
