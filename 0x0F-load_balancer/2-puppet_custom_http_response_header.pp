@@ -13,7 +13,7 @@ command => '/usr/sbin/ufw allow "Nginx HTTP"'
 file_line { 'addheader':
   ensure => 'present',
   path   => '/etc/nginx/nginx.conf',
-  after  => 'http {',
+  after  => '	gzip on;',
   line   => "	add_header X-Served-By ${hostname};",
 }
 
