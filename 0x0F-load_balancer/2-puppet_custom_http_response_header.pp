@@ -1,9 +1,9 @@
 #setup nginx web server with puppet
 
-$file_content= @("E0F")
+$file_content="
 server {
 	listen 80 default_server;
-	add_header X-Served-By "${facts['networking']['hostname']}";
+	add_header X-Served-By ${hostname}22;
 
 	root /var/www/html;
 	index index.html;
@@ -17,8 +17,7 @@ server {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
 }
-E0F
-
+"
 package {'nginx':
 ensure   => 'installed',
 provider => 'apt'
@@ -49,3 +48,4 @@ exec {'nginx-restart':
 command  => 'service nginx restart',
 provider => 'shell'
 }
+
