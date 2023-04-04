@@ -18,6 +18,7 @@ server {
 	}
 }
 "
+
 package { 'nginx':
   ensure   => 'installed',
   provider => 'apt',
@@ -34,17 +35,17 @@ file {'/var/www/html/404.html':
 ensure  => file,
 content => "Ceci n'est pas une page
 ",
-require => Package['nginx']
+require => File['/var/www/html/index.html']
 }
 
 file {'/etc/nginx/sites-enabled/default':
 ensure  => file,
 content => $file_content,
-require => Package['nginx']
+require => File['/var/www/html/404.html']
 }
 
 exec {'nginx-restart':
 command  => 'service nginx restart',
 provider => 'shell',
-require  => Package['nginx']
+require  => File['/etc/nginx/sites-enabled/default']
 }
