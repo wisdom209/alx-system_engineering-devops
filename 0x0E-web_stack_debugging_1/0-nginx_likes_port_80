@@ -2,4 +2,4 @@
 # changes listening port to 80
 sed -i 's/listen 8080 default_server;/listen 80 default_server;/g' /etc/nginx/sites-enabled/default
 pkill nginx
-service nginx restart
+service nginx restart > /dev/null 2>&1 &
