@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# get data from jsonplaceholder
+"""get data from jsonplaceholder"""
 import requests
 import sys
 
