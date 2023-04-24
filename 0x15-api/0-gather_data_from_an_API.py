@@ -35,4 +35,4 @@ if __name__ == '__main__':
     for todo in todo_response:
         task_title = todo.get("title")
         if (todo.get("completed")):
-            print("     {}".format(task_title))
+            print("\t {}".format(task_title))
