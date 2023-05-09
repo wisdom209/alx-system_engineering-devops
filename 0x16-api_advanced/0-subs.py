@@ -10,31 +10,10 @@ def number_of_subscribers(subreddit):
     subreddit. If an invalid subreddit is given,
     the function should return 0."""
 
-    client_id = '0vTOQrl3QM47iikslKqw1Q'
-    client_secret = 'B3AVOHPuQw7VMitr2Ue8UapdylUNNw'
-    user_agent = 'MyBot/0.0.1'
-    auth = requests.auth.HTTPBasicAuth(client_id, client_secret)
-
-    data = {
-        'grant_type': 'client_credentials',
-        'client_id': client_id,
-        'client_secret': client_secret,
-    }
-
-    headers = {'User-Agent': user_agent}
-    response = requests.post(
-        'https://www.reddit.com/api/v1/access_token',
-        data=data,
-        headers=headers,
-        auth=auth)
-    token = response.json()['access_token']
-
-    # Make an authenticated API request to retrieve the number of subscribers
-    # for the given subreddit
-    headers = {'User-Agent': user_agent,
-               'Authorization': 'Bearer {}'.format(token)}
+    headers = {"User-Agent": "user_agent"}
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     response = requests.get(
-        'https://oauth.reddit.com/r/{}/about'.format(subreddit),
+        url=url,
         headers=headers,
         allow_redirects=False)
     if response.status_code == 200:
