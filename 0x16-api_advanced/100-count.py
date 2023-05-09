@@ -36,7 +36,7 @@ def count_words(subreddit, wordlist, hot_list=[], after=None,):
                        key=lambda item: (-item[1], item[0])))
             for key, value in sorted_wordcounts.items():
                 if value != 0:
-                    print(key + ":", value)
+                    print("{}: {}".format(key, value))
             sys.exit(0)
         return count_words(subreddit, wordlist, hot_list, after)
     else:
