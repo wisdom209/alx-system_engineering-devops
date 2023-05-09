@@ -4,7 +4,7 @@ import requests
 import sys
 
 
-def number_of_subscribers(subreddit=None):
+def number_of_subscribers(subreddit):
     """function that queries the Reddit API and returns the number
     of subscribers (not active users, total subscribers) for a given
     subreddit. If an invalid subreddit is given,
@@ -31,9 +31,10 @@ def number_of_subscribers(subreddit=None):
 
     # Make an authenticated API request to retrieve the number of subscribers
     # for the given subreddit
-    headers = {'User-Agent': user_agent, 'Authorization': f'Bearer {token}'}
+    headers = {'User-Agent': user_agent,
+               'Authorization': 'Bearer {}'.format(token)}
     response = requests.get(
-        f'https://oauth.reddit.com/r/{subreddit}/about',
+        'https://oauth.reddit.com/r/{}/about'.format(subreddit),
         headers=headers,
         allow_redirects=False)
     if response.status_code == 200:
