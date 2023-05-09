@@ -28,16 +28,15 @@ def count_words(subreddit, wordlist, hot_list=[], after=None,):
         if not after:
             wordcounts = {}
             search_str = " ".join(hot_list)
-            for word in wordlist:
-                word_count = search_str.lower().count(word.lower())
-                wordcounts[word.lower()] = word_count
+            wordcounts = {word.lower(): search_str.lower().count(
+                word.lower()) for word in wordlist}
             sorted_wordcounts = dict(
                 sorted(wordcounts.items(),
                        key=lambda item: (-item[1], item[0])))
             for key, value in sorted_wordcounts.items():
                 if value != 0:
                     print("{}: {}".format(key, value))
-            sys.exit(0)
+            return (0)
         return count_words(subreddit, wordlist, hot_list, after)
     else:
         return None
