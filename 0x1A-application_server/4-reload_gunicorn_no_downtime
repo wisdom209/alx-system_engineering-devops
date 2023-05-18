@@ -5,3 +5,5 @@ pidList="$(pgrep gunicorn)"
 for pid in $pidList; do
         kill -HUP "$pid"
 done
+
+sudo systemctl restart gunicorn
