@@ -1,12 +1,12 @@
-# resolve issue of high number of opened file
+# script to resolve high number of failed request
 
-exec {'replace-1':
+exec {'replace':
   provider => shell,
-  command  => 'sudo sed -i "s/nofile 5/nofile 50000/" /etc/security/limits.conf',
-  before   => Exec['replace-2'],
+  command  => 'sudo sed -i "s/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
+  before   => Exec['restart'],
 }
 
-exec {'replace-2':
+exec {'restart':
   provider => shell,
-  command  => 'sudo sed -i "s/nofile 4/nofile 40000/" /etc/security/limits.conf',
+  command  => 'sudo service nginx restart',
 }
