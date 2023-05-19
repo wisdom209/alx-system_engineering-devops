@@ -1,12 +1,12 @@
-# Allow to handle more open files
+# Resolve high number of failed request
 
-exec {'change default limits':
+exec {'replace':
   provider => shell,
   command  => 'sudo sed -i "s/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/" /etc/default/nginx',
   before   => Exec['restart'],
 }
 
-exec {'restart nginx':
+exec {'restart':
   provider => shell,
   command  => 'sudo service nginx restart',
 }
